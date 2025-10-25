@@ -9,30 +9,42 @@ catalogs:
     '@biomejs/biome':
       specifier: ^2
       version: 2.3.0
+    '@hono/node-server':
+      specifier: ^1
+      version: 1.19.5
     '@tanstack/react-router':
-      specifier: ^1.133.27
+      specifier: ^1
+      version: 1.133.27
+    '@tanstack/react-router-devtools':
+      specifier: ^1
       version: 1.133.27
     '@tanstack/react-start':
-      specifier: ^1.133.27
+      specifier: ^1
       version: 1.133.27
     '@types/node':
-      specifier: 24.9.1
+      specifier: ^24
       version: 24.9.1
     '@types/react':
-      specifier: ^19.2.2
+      specifier: ^19
       version: 19.2.2
     '@types/react-dom':
-      specifier: ^19.2.2
+      specifier: ^19
       version: 19.2.2
     '@vitejs/plugin-react':
-      specifier: ^5.1.0
+      specifier: ^5
       version: 5.1.0
+    hono:
+      specifier: ^4
+      version: 4.10.3
     react:
       specifier: ^19.2.0
       version: 19.2.0
     react-dom:
       specifier: ^19.2.0
       version: 19.2.0
+    tsx:
+      specifier: ^4
+      version: 4.20.6
     turbo:
       specifier: ^2
       version: 2.5.8
@@ -60,6 +72,28 @@ importers:
         specifier: 'catalog:'
         version: 5.9.2
 
+  apps/api:
+    dependencies:
+      '@hono/node-server':
+        specifier: 'catalog:'
+        version: 1.19.5(hono@4.10.3)
+      '@repo/tsconfig':
+        specifier: workspace:*
+        version: link:../../packages/tsconfig
+      hono:
+        specifier: 'catalog:'
+        version: 4.10.3
+    devDependencies:
+      '@types/node':
+        specifier: 'catalog:'
+        version: 24.9.1
+      tsx:
+        specifier: 'catalog:'
+        version: 4.20.6
+      typescript:
+        specifier: 'catalog:'
+        version: 5.9.2
+
   apps/web:
     dependencies:
       '@repo/tsconfig':
@@ -69,7 +103,7 @@ importers:
         specifier: 'catalog:'
         version: 1.133.27(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@tanstack/react-router-devtools':
-        specifier: ^1.133.27
+        specifier: 'catalog:'
         version: 1.133.27(@tanstack/react-router@1.133.27(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(@tanstack/router-core@1.133.27)(@types/node@24.9.1)(csstype@3.1.3)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(solid-js@1.9.9)(tiny-invariant@1.3.3)(tsx@4.20.6)
       '@tanstack/react-start':
         specifier: 'catalog:'
@@ -460,6 +494,12 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [win32]
+
+  '@hono/node-server@1.19.5':
+    resolution: {integrity: sha512-iBuhh+uaaggeAuf+TftcjZyWh2GEgZcVGXkNtskLVoWaXhnJtC5HLHrU8W1KHDoucqO1MswwglmkWLFyiDn4WQ==}
+    engines: {node: '>=18.14.1'}
+    peerDependencies:
+      hono: ^4
 
   '@jridgewell/gen-mapping@0.3.13':
     resolution: {integrity: sha512-2kkt/7niJ6MgEPxF0bYdQ6etZaA+fQvDcLKckhy1yIQOzaoKjBBjSj63/aLVjYE3qhRt5dvM+uUyfCg6UKCBbA==}
@@ -950,6 +990,10 @@ packages:
     peerDependenciesMeta:
       crossws:
         optional: true
+
+  hono@4.10.3:
+    resolution: {integrity: sha512-2LOYWUbnhdxdL8MNbNg9XZig6k+cZXm5IjHn2Aviv7honhBMOHb+jxrKIeJRZJRmn+htUCKhaicxwXuUDlchRA==}
+    engines: {node: '>=16.9.0'}
 
   htmlparser2@10.0.0:
     resolution: {integrity: sha512-TwAZM+zE5Tq3lrEHvOlvwgj1XLWQCtaaibSN11Q+gGBAS7Y1uZSWwXXRe4iF6OXnaq1riyQAPFOBtYc77Mxq0g==}
@@ -1613,6 +1657,10 @@ snapshots:
   '@esbuild/win32-x64@0.25.11':
     optional: true
 
+  '@hono/node-server@1.19.5(hono@4.10.3)':
+    dependencies:
+      hono: 4.10.3
+
   '@jridgewell/gen-mapping@0.3.13':
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.5
@@ -2227,6 +2275,8 @@ snapshots:
       fetchdts: 0.1.7
       rou3: 0.7.8
       srvx: 0.8.16
+
+  hono@4.10.3: {}
 
   htmlparser2@10.0.0:
     dependencies:
