@@ -1,0 +1,19 @@
+{
+  "name": "turborepo-tanstack-start",
+  "private": true,
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "check": "biome check .",
+    "fix": "biome check --write ."
+  },
+  "devDependencies": {
+    "@biomejs/biome": "catalog:",
+    "turbo": "catalog:",
+    "typescript": "catalog:"
+  },
+  "packageManager": "pnpm@10.19.0",
+  "engines": {
+    "node": ">=22"
+  }
+}
