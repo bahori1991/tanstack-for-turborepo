@@ -1,3 +1,4 @@
+import { Button } from "@repo/ui/components/button";
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({
@@ -5,5 +6,10 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
-  return <h1>Hello Tanstack Start App</h1>;
+  return (
+    <>
+      <h1>Hello Tanstack-Start</h1>
+      <Button>click!</Button>
+    </>
+  );
 }

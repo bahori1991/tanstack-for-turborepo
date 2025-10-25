@@ -1,5 +1,6 @@
 /// <reference types="vite/client" />
 
+import styles from "@repo/ui/styles.css?url";
 import {
   createRootRoute,
   HeadContent,
@@ -16,6 +17,7 @@ export const Route = createRootRoute({
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "TanStack Start Starter" },
     ],
+    links: [{ rel: "stylesheet", href: styles }],
   }),
   component: RootComponent,
   notFoundComponent: () => <h1>404 Not Found</h1>,

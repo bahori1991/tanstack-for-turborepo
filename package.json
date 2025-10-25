@@ -4,6 +4,7 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
+    "ui": "pnpm --filter @repo/ui ui",
     "check": "biome check .",
     "fix": "biome check --write ."
   },

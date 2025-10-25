@@ -22,5 +22,8 @@
     "**/node_modules": true,
     "**/.turbo": true,
     "**/.tanstack": true
+  },
+  "files.associations": {
+    "*.css": "tailwindcss"
   }
 }

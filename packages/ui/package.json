@@ -1,0 +1,34 @@
+{
+  "name": "@repo/ui",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "exports": {
+    "./styles.css": "./src/styles/styles.css",
+    "./lib/*": "./src/lib/*.ts",
+    "./hooks/*": "./src/hooks/*.ts",
+    "./components/*": "./src/components/*.tsx"
+  },
+  "scripts": {
+    "ui": "pnpm dlx shadcn@latest"
+  },
+  "dependencies": {
+    "@repo/tsconfig": "workspace:*",
+    "@radix-ui/react-slot": "catalog:",
+    "@tailwindcss/vite": "catalog:",
+    "class-variance-authority": "catalog:",
+    "clsx": "catalog:",
+    "lucide-react": "catalog:",
+    "tailwind-merge": "catalog:",
+    "tailwindcss": "catalog:",
+    "tw-animate-css": "catalog:"
+  },
+  "devDependencies": {
+    "@types/react": "catalog:",
+    "typescript": "catalog:"
+  },
+  "peerDependencies": {
+    "react": ">=19.0.0"
+  },
+  "packageManager": "pnpm@10.19.0"
+}
