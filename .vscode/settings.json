@@ -18,7 +18,9 @@
     "editor.defaultFormatter": "biomejs.biome"
   },
   "files.exclude": {
-    ".pnpm-store": true,
-    "node_modules": true
+    // ".pnpm-store": true,
+    // "**/node_modules": true,
+    // "**/.turbo": true,
+    // "**/.tanstack": true
   }
 }
