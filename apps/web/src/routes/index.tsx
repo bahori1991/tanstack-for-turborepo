@@ -1,4 +1,4 @@
-import { Button } from "@repo/ui/components/button";
+import { clientEnv } from "@repo/env/client";
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({
@@ -9,7 +9,7 @@ function Home() {
   return (
     <>
       <h1>Hello Tanstack-Start</h1>
-      <Button>click!</Button>
+      <p>{clientEnv.VITE_APP_URL}</p>
     </>
   );
 }

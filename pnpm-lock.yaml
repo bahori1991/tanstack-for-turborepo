@@ -13,8 +13,11 @@ catalogs:
       specifier: ^1
       version: 1.19.5
     '@radix-ui/react-slot':
-      specifier: 1.2.3
+      specifier: ^1
       version: 1.2.3
+    '@t3-oss/env-core':
+      specifier: ^0
+      version: 0.13.8
     '@tailwindcss/vite':
       specifier: ^4
       version: 4.1.16
@@ -52,16 +55,16 @@ catalogs:
       specifier: ^0
       version: 0.548.0
     react:
-      specifier: ^19.2.0
+      specifier: ^19
       version: 19.2.0
     react-dom:
-      specifier: ^19.2.0
+      specifier: ^19
       version: 19.2.0
     tailwind-merge:
       specifier: ^3
       version: 3.3.1
     tailwindcss:
-      specifier: ^4.1.16
+      specifier: ^4
       version: 4.1.16
     tsx:
       specifier: ^4
@@ -73,14 +76,17 @@ catalogs:
       specifier: ^1
       version: 1.4.0
     typescript:
-      specifier: 5.9.2
+      specifier: ^5
       version: 5.9.2
     vite:
-      specifier: ^7.1.12
+      specifier: ^7
       version: 7.1.12
     vite-tsconfig-paths:
-      specifier: ^5.1.4
+      specifier: ^5
       version: 5.1.4
+    zod:
+      specifier: ^4
+      version: 4.1.12
 
 importers:
 
@@ -101,6 +107,9 @@ importers:
       '@hono/node-server':
         specifier: 'catalog:'
         version: 1.19.5(hono@4.10.3)
+      '@repo/env':
+        specifier: workspace:*
+        version: link:../../packages/env
       '@repo/tsconfig':
         specifier: workspace:*
         version: link:../../packages/tsconfig
@@ -120,6 +129,9 @@ importers:
 
   apps/web:
     dependencies:
+      '@repo/env':
+        specifier: workspace:*
+        version: link:../../packages/env
       '@repo/tsconfig':
         specifier: workspace:*
         version: link:../../packages/tsconfig
@@ -166,6 +178,28 @@ importers:
       vite-tsconfig-paths:
         specifier: 'catalog:'
         version: 5.1.4(typescript@5.9.2)(vite@7.1.12(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.20.6))
+
+  packages/env:
+    dependencies:
+      '@t3-oss/env-core':
+        specifier: 'catalog:'
+        version: 0.13.8(typescript@5.9.2)(zod@4.1.12)
+      zod:
+        specifier: 'catalog:'
+        version: 4.1.12
+    devDependencies:
+      '@repo/tsconfig':
+        specifier: workspace:*
+        version: link:../tsconfig
+      '@types/node':
+        specifier: 'catalog:'
+        version: 24.9.1
+      typescript:
+        specifier: 'catalog:'
+        version: 5.9.2
+      vite:
+        specifier: 'catalog:'
+        version: 7.1.12(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.20.6)
 
   packages/tsconfig: {}
 
@@ -736,6 +770,23 @@ packages:
     resolution: {integrity: sha512-TAcgQh2sSkykPRWLrdyy2AiceMckNf5loITqXxFI5VuQjS5tSuw3WlwdN8qv8vzjLAUTvYaH/mVjSFpbkFbpTg==}
     cpu: [x64]
     os: [win32]
+
+  '@t3-oss/env-core@0.13.8':
+    resolution: {integrity: sha512-L1inmpzLQyYu4+Q1DyrXsGJYCXbtXjC4cICw1uAKv0ppYPQv656lhZPU91Qd1VS6SO/bou1/q5ufVzBGbNsUpw==}
+    peerDependencies:
+      arktype: ^2.1.0
+      typescript: '>=5.0.0'
+      valibot: ^1.0.0-beta.7 || ^1.0.0
+      zod: ^3.24.0 || ^4.0.0-beta.0
+    peerDependenciesMeta:
+      arktype:
+        optional: true
+      typescript:
+        optional: true
+      valibot:
+        optional: true
+      zod:
+        optional: true
 
   '@tailwindcss/node@4.1.16':
     resolution: {integrity: sha512-BX5iaSsloNuvKNHRN3k2RcCuTEgASTo77mofW0vmeHkfrDWaoFAFvNHpEgtu0eqyypcyiBkDWzSMxJhp3AUVcw==}
@@ -1627,6 +1678,9 @@ packages:
   zod@3.25.76:
     resolution: {integrity: sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==}
 
+  zod@4.1.12:
+    resolution: {integrity: sha512-JInaHOamG8pt5+Ey8kGmdcAcg3OL9reK8ltczgHTAwNhMys/6ThXHityHxVV2p3fkw/c+MAvBHFVYHFZDmjMCQ==}
+
 snapshots:
 
   '@babel/code-frame@7.26.2':
@@ -2066,6 +2120,11 @@ snapshots:
 
   '@rollup/rollup-win32-x64-msvc@4.52.5':
     optional: true
+
+  '@t3-oss/env-core@0.13.8(typescript@5.9.2)(zod@4.1.12)':
+    optionalDependencies:
+      typescript: 5.9.2
+      zod: 4.1.12
 
   '@tailwindcss/node@4.1.16':
     dependencies:
@@ -3014,3 +3073,5 @@ snapshots:
   yallist@3.1.1: {}
 
   zod@3.25.76: {}
+
+  zod@4.1.12: {}
