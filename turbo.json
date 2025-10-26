@@ -1,14 +1,23 @@
 {
   "$schema": "https://turborepo.com/schema.json",
   "ui": "tui",
+  "globalEnv": ["NODE_ENV"],
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
-      "inputs": ["$TURBO_DEFAULT$", ".env*"]
+      "inputs": ["$TURBO_DEFAULT$", ".env.local"],
+      "env": [
+        "APPLICATION_URL",
+        "API_SERVER_URL",
+        "VITE_APPLICATION_URL",
+        "VITE_API_SERVER_URL"
+      ],
+      "outputs": ["dist/**", "build/**"]
     },
     "dev": {
       "cache": false,
-      "persistent": true
+      "persistent": true,
+      "env": ["NODE_ENV", "API_SERVER_URL", "APPLICATION_URL"]
     }
   }
 }

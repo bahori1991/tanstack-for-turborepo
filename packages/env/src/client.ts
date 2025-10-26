@@ -6,9 +6,11 @@ import * as z from "zod";
 export const clientEnv = createEnv({
   clientPrefix: "VITE_",
   client: {
-    VITE_APP_URL: z.url(),
+    VITE_APPLICATION_URL: z.url(),
+    VITE_API_SERVER_URL: z.url(),
   },
   runtimeEnv: {
-    VITE_APP_URL: import.meta.env.VITE_APP_URL,
+    VITE_APPLICATION_URL: import.meta.env.VITE_APPLICATION_URL,
+    VITE_API_SERVER_URL: import.meta.env.VITE_API_SERVER_URL,
   },
 });

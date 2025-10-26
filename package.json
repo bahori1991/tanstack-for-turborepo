@@ -2,14 +2,16 @@
   "name": "turborepo-tanstack-start",
   "private": true,
   "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev",
+    "build": "pnpm with-env turbo run build",
+    "dev": "pnpm with-env turbo run dev",
     "ui": "pnpm --filter @repo/ui ui",
     "check": "biome check .",
-    "fix": "biome check --write ."
+    "fix": "biome check --write .",
+    "with-env": "dotenv -e .env.local --"
   },
   "devDependencies": {
     "@biomejs/biome": "catalog:",
+    "dotenv-cli": "catalog:",
     "turbo": "catalog:",
     "typescript": "catalog:"
   },

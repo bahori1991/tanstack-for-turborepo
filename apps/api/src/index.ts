@@ -8,6 +8,8 @@ app.get("/", (c) => {
   return c.text("Hello Hono!");
 });
 
-serve({ fetch: app.fetch, port: serverEnv.API_PORT }, () => {
-  console.log(`Server is running on ${serverEnv.API_URL}`);
+const port = Number(new URL(serverEnv.API_SERVER_URL).port);
+
+serve({ fetch: app.fetch, port }, () => {
+  console.log(`Server is running on ${serverEnv.API_SERVER_URL}`);
 });
