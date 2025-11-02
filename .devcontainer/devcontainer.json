@@ -1,17 +1,14 @@
 {
   "name": "node-turborepo",
-  "build": {
-    "dockerfile": "Dockerfile"
-  },
+  "dockerComposeFile": "compose.yaml",
+  "service": "app",
   "remoteUser": "appuser",
   "workspaceFolder": "/home/appuser/workspace",
-  "workspaceMount": "source=${localWorkspaceFolder},target=/home/appuser/workspace,type=bind",
   "mounts": [
     "source=${localEnv:HOME}/.bashrc,target=/home/appuser/.bashrc,type=bind,readonly=true",
     "source=${localEnv:HOME}/.ssh,target=/home/appuser/.ssh,type=bind"
   ],
   "features": {
-    "ghcr.io/devcontainers/features/git:1": {},
     "ghcr.io/devcontainers/features/github-cli:1": {}
   },
   "containerEnv": {
@@ -40,11 +37,9 @@
       ],
       "settings": {
         "terminal.integrated.defaultProfile.linux": "bash",
-        "terminal.integrated.shell.linux": "/bin/bash",
         "security.workspace.trust.enabled": true
       }
     }
   },
-  "postStartCommand": "echo 'Dev container started successfully!'",
   "shutdownAction": "stopContainer"
 }

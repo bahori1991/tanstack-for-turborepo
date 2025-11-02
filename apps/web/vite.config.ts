@@ -1,3 +1,4 @@
+import { resolve } from "node:path";
 import tailwindcss from "@tailwindcss/vite";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import viteReact from "@vitejs/plugin-react";
@@ -7,4 +8,5 @@ import tsConfigPaths from "vite-tsconfig-paths";
 export default defineConfig({
   server: { port: 3000, host: true, open: false },
   plugins: [tsConfigPaths(), tanstackStart(), viteReact(), tailwindcss()],
+  envDir: resolve(__dirname, "../.."),
 });

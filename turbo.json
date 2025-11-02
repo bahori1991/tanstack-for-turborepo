@@ -17,7 +17,12 @@
     "dev": {
       "cache": false,
       "persistent": true,
-      "env": ["NODE_ENV", "API_SERVER_URL", "APPLICATION_URL"]
+      "env": [
+        "API_SERVER_URL",
+        "APPLICATION_URL",
+        "VITE_API_SERVER_URL",
+        "VITE_APPLICATION_URL"
+      ]
     }
   }
 }

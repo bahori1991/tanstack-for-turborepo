@@ -10,7 +10,8 @@ RUN apt update && \
         curl \
         xz-utils \
         ca-certificates \
-        dumb-init && \
+        dumb-init \
+        lsof && \
     apt clean && \
     rm -rf /var/lib/apt/lists/* && \
     apt autoremove -y
